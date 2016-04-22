@@ -1,0 +1,17 @@
+class metaparameters {
+
+        $systemupdate = $osfamily ? {
+                'RedHat'        => '/usr/local/bin/bash.sh',
+                'Debian'        => '/usr/bin/apt-get upgrade -y'
+
+        }
+
+        schedule { 'system-daily':
+                period  => daily,
+                range   => '14:00 - 15:00',
+        }
+
+        exec { $systemupdate:
+                schedule => 'system-daily'
+        }
+}
