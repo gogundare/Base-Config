@@ -16,3 +16,45 @@ class localusers {
 		managehome	=> true
 	}
 }
+
+#class profiles::users_management {
+
+#        group   { 'wheel':
+#       ensure  => 'present',
+#        tag     => 'wheel',
+#}
+
+
+ #       group   { 'mbda':
+ #       ensure  => 'present',
+ #       tag     => 'mbda',
+#}
+
+
+ # user { 'sutch':
+ #       comment    => 'Dennis Sutch',
+ #       home       => "/home/sutch",
+ #       shell      => '/bin/bash',
+ #       uid        => '513',
+ #       gid        => '513',
+ #       managehome => true,
+ #       password   => '$1$SOU57gVz$JcAsao7GkUYCnPvXfPOGV/',
+ #       groups     => 'sutch',
+##    require    => Group['Admin']
+ # }
+  #      group { 'sutch':
+    #    gid     => '513'
+   #  }
+
+##########  FOR SETTING SSH-KEY, USE THE BELOW FIELD  ##########
+
+#       if $sshkeytype != '' {
+#       ssh_authorized_key{ $username:
+#       ensure  => present,
+#      user    => $username,
+#      type    => $sshkeytype,
+#      key     => $sshkey,
+#      name    => $username,
+#      require => User[$title],
+#    }
+
